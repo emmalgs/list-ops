@@ -9,12 +9,21 @@ export class List {
   }
 
   append(list) {
-      const appendedList = [...this.values, ...list.values];
-      return new List(appendedList);
+    const appendedList = [...this.values, ...list.values];
+    return new List(appendedList);
   }
 
-  concat() {
-    throw new Error("Remove this statement and implement this function");
+  concat(...list) {
+    for (let i = 0; i < list.length; i++) {
+      const currentList = list[i];
+      if (currentList.values[0] instanceof List) {
+        this.concat(...currentList.values);
+      } else {
+        const newList = [...this.values, ...currentList.values];
+        this.values = newList;
+      }
+    }
+    return this;
   }
 
   filter() {

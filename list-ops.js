@@ -69,6 +69,11 @@ export class List {
   }
 
   reverse() {
-    throw new Error("Remove this statement and implement this function");
+    const reversedValues = [];
+    for (let i = this.values.length - 1; i >= 0; i--) {
+      const currentElement = this.values[i]
+      reversedValues.push(currentElement)
+    }
+    return new List(reversedValues);
   }
 }

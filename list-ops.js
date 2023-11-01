@@ -50,8 +50,13 @@ export class List {
     return this.values.length;
   }
 
-  foldl() {
-    throw new Error("Remove this statement and implement this function");
+  foldl(reducer, initialValue = 0) {
+    let acc = initialValue
+    for (let i = 0; i < this.values.length; i++) {
+      const currentElement = this.values[i];
+      acc = reducer(acc, currentElement);
+    }
+    return acc;
   }
 
   foldr() {

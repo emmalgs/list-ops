@@ -41,9 +41,9 @@ export class List {
     const mappedList = [];
     for (let i = 0; i < this.values.length; i++) {
       const currentElement = this.values[i];
-      mappedList.push(callback(currentElement))
+      mappedList.push(callback(currentElement));
     }
-    return new List(mappedList)
+    return new List(mappedList);
   }
 
   length() {
@@ -51,7 +51,7 @@ export class List {
   }
 
   foldl(reducer, initialValue = 0) {
-    let acc = initialValue
+    let acc = initialValue;
     for (let i = 0; i < this.values.length; i++) {
       const currentElement = this.values[i];
       acc = reducer(acc, currentElement);
@@ -59,8 +59,13 @@ export class List {
     return acc;
   }
 
-  foldr() {
-    throw new Error("Remove this statement and implement this function");
+  foldr(reducer, initialValue = 0) {
+    let acc = initialValue;
+    for (let i = this.values.length - 1; i >= 0; i--) {
+      const currentElement = this.values[i];
+      acc = reducer(acc, currentElement);
+    }
+    return acc;
   }
 
   reverse() {

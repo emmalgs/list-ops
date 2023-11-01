@@ -84,24 +84,24 @@ describe('folds (reduces) the given list from the left with a function', () => {
     expect(list1.foldl((acc, el) => acc + el, 5)).toEqual(15);
   });
 
-  xtest('direction dependent function applied to non-empty list', () => {
+  test('direction dependent function applied to non-empty list', () => {
     const list1 = new List([1, 2, 3, 4]);
     expect(list1.foldl((acc, el) => el / acc, 24)).toEqual(64);
   });
 });
 
 describe('folds (reduces) the given list from the right with a function', () => {
-  xtest('empty list', () => {
+  test('empty list', () => {
     const list1 = new List();
     expect(list1.foldr((acc, el) => el * acc, 2)).toEqual(2);
   });
 
-  xtest('direction independent function applied to non-empty list', () => {
+  test('direction independent function applied to non-empty list', () => {
     const list1 = new List([1, 2, 3, 4]);
     expect(list1.foldr((acc, el) => acc + el, 5)).toEqual(15);
   });
 
-  xtest('direction dependent function applied to non-empty list', () => {
+  test('direction dependent function applied to non-empty list', () => {
     const list1 = new List([1, 2, 3, 4]);
     expect(list1.foldr((acc, el) => el / acc, 24)).toEqual(9);
   });

@@ -37,8 +37,13 @@ export class List {
     return new List(filteredList);
   }
 
-  map() {
-    throw new Error("Remove this statement and implement this function");
+  map(callback) {
+    const mappedList = [];
+    for (let i = 0; i < this.values.length; i++) {
+      const currentElement = this.values[i];
+      mappedList.push(callback(currentElement))
+    }
+    return new List(mappedList)
   }
 
   length() {

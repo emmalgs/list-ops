@@ -26,8 +26,15 @@ export class List {
     return this;
   }
 
-  filter() {
-    throw new Error("Remove this statement and implement this function");
+  filter(condition) {
+    const filteredList = [];
+    for (let i = 0; i < this.values.length; i++) {
+      const currentElement = this.values[i];
+      if (condition(currentElement)) {
+        filteredList.push(currentElement);
+      }
+    }
+    return new List(filteredList);
   }
 
   map() {
